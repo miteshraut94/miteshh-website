@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        View Edit | MITH FX EDITION
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="viewer-page">
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="viewer-navbar">
+
+        <a
+            href="index.html"
+            class="back-button"
+        >
+            ← Back
+        </a>
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="https://res.cloudinary.com/wcpmyjbi/image/upload/v1789043425/IMG_20260910_175846.jpg.jpg"
+                alt="MITH FX EDITION Logo"
+            >
+
+        </a>
+
+
+        <a
+            href="https://wa.me/9185220233?text=Hello%20MITH%20FX%20EDITION,%20I%20want%20to%20book%20an%20edit."
+            target="_blank"
+            class="nav-book"
+        >
+            Book Edit
+        </a>
+
+    </header>
+
+
+    <!-- ================= VIDEO VIEWER ================= -->
+
+    <main class="viewer-container">
+
+
+        <div class="large-video-box">
+
+            <video
+                id="mainVideo"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+            ></video>
+
+        </div>
+
+
+        <div class="viewer-info">
+
+            <p class="small-title">
+                MITH FX EDITION
+            </p>
+
+
+            <h1 id="videoTitle">
+                My Edit
+            </h1>
+
+
+            <p id="videoDescription">
+                Premium video editing.
+            </p>
+
+
+            <a
+                href="https://wa.me/9185220233?text=Hello%20MITH%20FX%20EDITION,%20I%20want%20to%20book%20a%20video%20edit."
+                target="_blank"
+                class="whatsapp-button"
+            >
+                📲 Book This Type of Edit
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <img
+                src="https://res.cloudinary.com/wcpmyjbi/image/upload/v1789043425/IMG_20260910_175846.jpg.jpg"
+                alt="MITH FX EDITION Logo"
+            >
+
+        </div>
+
+
+        <p>
+            Video Editor & FX Creator
+        </p>
+
+
+        <div class="contact-details">
+
+            <p>
+                📞 9185220233
+            </p>
+
+            <p>
+                📸
+
+                <a
+                    href="https://www.instagram.com/mith_fx_edition/"
+                    target="_blank"
+                >
+                    @mith_fx_edition
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 MITH FX EDITION.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= VIDEO SCRIPT ================= -->
+
+    <script>
+
+        const videos = {
+
+            car: {
+
+                url:
+                "https://res.cloudinary.com/wcpmyjbi/video/upload/v1789042314/Video-48813.mp4",
+
+                title:
+                "Car Delivery Edit",
+
+                description:
+                "Cinematic car delivery edit with speed ramps, transitions and visual effects."
+
+            },
+
+
+            bike: {
+
+                url:
+                "https://res.cloudinary.com/wcpmyjbi/video/upload/v1789042285/Video-71641.mp4",
+
+                title:
+                "Bike Edit",
+
+                description:
+                "High-energy cinematic bike edit with dynamic transitions and effects."
+
+            }
+
+        };
+
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const selectedVideo =
+            params.get("video");
+
+
+        const mainVideo =
+            document.getElementById(
+                "mainVideo"
+            );
+
+
+        const videoTitle =
+            document.getElementById(
+                "videoTitle"
+            );
+
+
+        const videoDescription =
+            document.getElementById(
+                "videoDescription"
+            );
+
+
+        if (videos[selectedVideo]) {
+
+            mainVideo.src =
+                videos[selectedVideo].url;
+
+
+            videoTitle.textContent =
+                videos[selectedVideo].title;
+
+
+            videoDescription.textContent =
+                videos[selectedVideo].description;
+
+
+            mainVideo.play().catch(
+                function () {
+                    console.log(
+                        "Autoplay requires user interaction."
+                    );
+                }
+            );
+
+        }
+
+        else {
+
+            mainVideo.src =
+                videos.car.url;
+
+
+            videoTitle.textContent =
+                videos.car.title;
+
+
+            videoDescription.textContent =
+                videos.car.description;
+
+        }
+
+    </script>
+
+
+</body>
+</html>
